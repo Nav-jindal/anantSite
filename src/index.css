@@ -1,13 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  font-family: "Ubuntu Mono", monospace;
+  letter-spacing: 1px;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.triangle:before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-bottom: 25px solid transparent;
+  border-right: 35px solid #1C1C1C;
+  position: absolute;
+  top:0;
+  left: -35px
+}
+
+
+.footerIcons:hover{
+  color: #ffffff !important;
 }
