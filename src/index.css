@@ -3,13 +3,14 @@
 @tailwind utilities;
 
 html, body {
-  font-family: "Ubuntu Mono", monospace;
+  font-family: "Ubuntu", sans-serif;
   letter-spacing: 1px;
 }
 
 body {
   margin: 0;
   padding: 0;
+  background-color: #0D0D0D;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -19,12 +20,13 @@ body {
   content: '';
   display: block;
   width: 0;
-  height: 0;
-  border-bottom: 25px solid transparent;
-  border-right: 35px solid #1C1C1C;
+	height: 0;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-bottom: 24px solid #1D1C1C;
   position: absolute;
-  top:0;
-  left: -35px
+  left: 20px;
+  top:-20px;
 }
 
 

@@ -7,22 +7,45 @@ import Contact from './app/pages/contact'
 import Footer from './app/components/footer'
 
 // Routes:
-import { Route, Routes } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
+
+// Functions: 
+const MainLayout = () => <>
+  <Navbar />
+  <Outlet />
+</>
 
 function App() {
+  // Constants:
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <MainLayout />,
+      errorElement: 'Page Not Found',
+      children: [
+        {
+          path: '/',
+          element: <Home />
+        },
+        {
+          path: '/about',
+          element: <About />
+        },
+        {
+          path: '/articles',
+          element: <Articles />
+        },
+        {
+          path: '/contact',
+          element: <Contact />
+        },
+      ]
+    }
+  ])
   return (
-    <div className="bg-secondary-black w-full text-white">
-      <Navbar/>
-      <main className='px-[50px] min-h-[calc(100vh-109px)]'>
-        <Routes>
-          <Route path='/' element={ <Home /> }/>
-          <Route path='/about' element={ <About /> }/>
-          <Route path='/articles' element={ <Articles /> }/>
-          <Route path='/contact' element={ <Contact /> }/>
-        </Routes>
-      </main>
-      {/* <Footer /> */}
-    </div>
+      <div className='px-[50px] w-full text-white'> {/* min-h-[calc(100vh-109px)] */}
+        <RouterProvider router={router}/>
+      </div>
   );
 }
 

@@ -1,36 +1,69 @@
+// Packages:
+import { useState } from "react"
+
 // Import:
 import { NavLink } from "react-router-dom"
 
+// Typescript:
+interface NavItemType {
+    id?: number
+    title: string
+    location: string
+    currentPage?: string
+    setCurrentPage: React.Dispatch<React.SetStateAction<string>>
+}
+// Functions: 
+const NavItem = ({title, location, currentPage, setCurrentPage}:NavItemType) => <>
+    <NavLink    
+        className={`${currentPage === location ? 'font-semibold text-white cursor-default pointer-events-none' : ''} hover:text-white text-[#615F5F] cursor-pointer text-[16px] hover:font-semibold hover:shadow-[0_2px_0_0_#ffffff] pb-[5px]`}
+        to={location}
+        onClick={() => setCurrentPage(location ?? '/')}
+    >
+        {title}
+    </NavLink>
+</>
+
 const Navbar = () => {
-    return <div className='flex justify-between items-center px-[50px] py-[18px] leading-[2px]'>
-        <div className='font-bold text-[18px]'>Anant Jakhmola</div>
+    // Constants:
+    const navbarLinkArr = [
+        {
+            id: 0,
+            title: 'home',
+            location: '/'
+        },
+        {
+            id: 1,
+            title: 'about',
+            location: '/about'
+        },
+        {
+            id: 2,
+            title: 'articles',
+            location: '/articles'
+        },
+        {
+            id: 3,
+            title: 'contact',
+            location: '/contact'
+        }
+    ]
+
+    // States:
+    const [currentPage, setCurrentPage] = useState<string>('/')
+
+    return <div className='flex justify-between items-center py-[24px]'>
+        <div className='font-bold text-[18px]'>AJ</div>
         <div className='flex gap-[30px]'>
-            <NavLink    
-                className='font-semibold hover:text-white text-[#615F5F] cursor-pointer text-[16px]' 
-                to='/'
-            >
-                home
-            </NavLink>
-            <NavLink    
-                className='font-semibold hover:text-white text-[#615F5F] cursor-pointer text-[16px]' 
-                to='/about'
-            >
-                about
-            </NavLink>
-            <NavLink    
-                className='font-semibold hover:text-white text-[#615F5F] cursor-pointer text-[16px]' 
-                to='/articles'
-            >
-                articles
-            </NavLink>
-            <NavLink    
-                className='font-semibold hover:text-white text-[#615F5F] cursor-pointer text-[16px]' 
-                to='/contact'
-            >
-                contact
-            </NavLink>
+            {navbarLinkArr?.map((navItem)=>
+                <NavItem
+                    key={navItem.id}
+                    title={navItem?.title}
+                    location={navItem?.location}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                />
+            )}
         </div>
-        <button className='bg-primary-red px-[24px] py-[16px] rounded-[12px] cursor-pointer'>download resume</button>
     </div>
 } 
 export default Navbar

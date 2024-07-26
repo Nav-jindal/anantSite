@@ -1,87 +1,108 @@
 // Components
+import Footer from "../components/footer"
 import TimelineComponent from "../components/timeline"
-import AboutSidebarComponent from "../components/aboutSidebar"
 
 //Icons
 import { RiGraduationCapFill, RiSettings4Fill } from "react-icons/ri"
 
 // Typescript:
 export interface ExperienceType {
-    id?: number
+    id: number
     workDuration: string
     companyName: string
     designation: string
-    description: string
+    currentlyWorking: boolean
+    //description: string
 }
 
 export interface ExtraInfoType {
     id?: number
-    icon: React.ReactElement
-    name: string
+    heading: string
+    name?: string
     info: string[]
 }
+
+// Functions:
+const AboutExtraInfoComponent = ({ heading, name, info }:ExtraInfoType) => 
+    <div className='flex gap-[45px] my-[50px]'>
+        <h3 className='text-[25px] font-medium min-w-[18%]'>{heading}</h3>
+        <div className='w-[45%]'>
+            <h4 className='text-[18px] font-medium text-[#ABABAB]'>{name}</h4>
+            <div className='flex flex-wrap gap-[25px] mt-[10px]'>
+                {info?.map((item:string, index:number)=><div>
+                    <p className='text-[16px] text-[#ABABAB]'>
+                        {item} 
+                    </p>
+                </div>)}
+            </div>
+        </div>
+    </div>
+
 const About = () => {
     // Constants:
     const experienceArr = [
         {
             id: 0,
-            workDuration: 'july 21 - present',
+            workDuration: 'July 21 - Present',
             companyName: 'GROWW',
-            designation: 'Devops',
-            description: 'asdsadjdoijaoidjiojiod jjd iojsai oji ojaioj ioji oio jio jio jio jois'
+            designation: 'SDE II - Devops',
+            currentlyWorking: true,
+        },
+        {
+            id: 1,
+            workDuration: 'July 21 - Present',
+            companyName: 'GROWW',
+            designation: 'SDE II - Devops',
+            currentlyWorking: false,
         },
     ]
 
     const extraInfoArr = [
         {
             id: 0,
-            icon: <RiGraduationCapFill size={30}/>,
+            icon: <RiGraduationCapFill size={48}/>,
+            heading: 'Education',
             name: 'Graphic Era Deemed to be University',
-            info: ['B.Tech', '2017-21'],
+            info: ['B.Tech (2017-21)'],
         },
         {
             id: 1,
-            icon: <RiSettings4Fill size={30} />,
-            name: 'Technical Skills',
-            info: ['Docker', 'Kubernetes'],
+            icon: <RiSettings4Fill size={48} />,
+            heading: 'Technical Skills',
+            info: ['Docker', 'Kubernetes', 'MySql', 'Linux', 'Docker', 'Percona Monitoring', 'Terraform', 'GCP'],
         },
     ]
-    return <div className='mt-[50px] flex gap-[50px]'>
-        <div className='basis-[60%]'>
-            <h2 className='text-[48.828px] font-semibold uppercase'>About</h2>
-            <p className='text-[16px] text-[#888888]'> Lorem ipsum dolor sit amet consectetur. Nulla viverra faucibus mauris sagittis. Laoreet dictum ipsum leo 
-                integer id nisi dignissim aliquam hac. Ante leo non scelerisque faucibus eros cursus sed ornare. Volutpat 
-                amet nam scelerisque et nec donec. Amet sapien sed gravida arcu. Ut ac eget suspendisse cursus nec massa nec 
-                non. Nulla non vitae et nisi pellentesque. Porttitor risus in sed habitasse. Nisl cursus in turpis gravida 
-                senectus lectus. Id orci bibendum sit malesuada pharetra a diam id. Vel nulla gravida et eget.</p>
-        
-            <div className='mt-[35px]'> 
-                <h3 className='text-[39.063px]'>Experience</h3>
-                <div className='mt-[10px] grid grid-cols-[max-content_max-content_400px] gap-x-[25px]'>   
-                    {experienceArr?.map((experience: ExperienceType)=> 
-                    <TimelineComponent 
-                        key={experience?.id}
-                        workDuration={experience?.workDuration}
-                        companyName={experience?.companyName}
-                        designation={experience?.designation}
-                        description={experience?.description}
-                    />
-                    )}
-                </div>
-            </div>
-        </div>
-        <div className='basis-[40%]'>
+    return <>
+    <div className='mt-[50px] mb-[100px]'>
+        <h2 className='text-[39.063px] font-semibold mb-[15px]'>About</h2>
+     
+        <p className='text-[16px] text-[#888888] w-[60%]'> Lorem ipsum dolor sit amet consectetur. Nulla viverra faucibus mauris sagittis. Laoreet dictum ipsum leo 
+            integer id nisi dignissim aliquam hac. Ante leo non scelerisque faucibus eros cursus sed ornare. Volutpat 
+            amet nam scelerisque et nec donec. Amet sapien sed gravida arcu. Ut ac eget suspendisse cursus nec massa nec 
+            non. Nulla non vitae et nisi pellentesque. Porttitor risus in sed habitasse. Nisl cursus in turpis gravida 
+            senectus lectus. Id orci bibendum sit malesuada pharetra a diam id. Vel nulla gravida et eget.
+        </p>
+ 
+        <div className='mt-[30px]'>
             {extraInfoArr?.map((extraInfo: ExtraInfoType)=>
-                <AboutSidebarComponent 
+                <AboutExtraInfoComponent 
                     key={extraInfo?.id}
+                    heading={extraInfo?.heading}
                     name={extraInfo?.name}
-                    icon={extraInfo?.icon}
                     info={extraInfo?.info}
                 />
             )}
             
         </div>
+        <div className='mt-[35px]'>
+            <h3 className='text-[25px] font-bold '>Experience</h3>
+                <TimelineComponent
+                    experienceArr={experienceArr}
+                />
+        </div>
     </div>
+    <Footer/>
+    </>
 }
 
 export default About
