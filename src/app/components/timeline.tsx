@@ -14,11 +14,7 @@ interface TimelineComponentType {
 }
 // Functions:
 const Pillar = () => 
-    <div className='block w-full h-[3px] bg-[#292929] '
-        style={{
-            boxShadow: '0px 0px 0px 100vmax #292929',
-            clipPath: 'inset(0 -100vmax)'
-        }}
+    <div className='bg-[#292929] block min-h-full w-[3px] sm:w-full sm:h-[3px] fullBleedLineTimeline'
     >
     </div>
 
@@ -28,35 +24,36 @@ const EventCard = ({
     workDuration, 
     currentlyWorking
 }: EventCardType) => 
-    <div className="w-max">
-    <div className={`${ currentlyWorking ? 'border-[#E73D3D]' : 'border-[#1D1C1C]' }
-                relative top-[-10px] left-[24px] block border-[4px] 
-                bg-[#0D0D0D] border-solid rounded-[50%] h-[20px] w-[20px]`}>
+    <div className='w-max relative'>
+        <div className={`${ currentlyWorking ? 'border-[#E73D3D]' : 'border-[#1D1C1C]' }
+                    absolute top-[14px] left-[-56px] sm:top-[-10px] sm:left-[24px] block border-[4px] 
+                    bg-[#0D0D0D] border-solid rounded-[50%] h-[20px] w-[20px]`}>
 
-    </div>
-    <div>
-        <div className='relative triangle bg-[#1D1C1C] text-center py-[10px] px-[40px] mt-[25px]'>
-            {workDuration}
         </div>
-        <div className={`${currentlyWorking ? 'bg-[#E73D3D]' : 'bg-[#1D1C1C]'} py-[15px] text-center mt-[8px]`}>
-            <div className='text-[25px] font-bold'>{companyName}</div>
-            <div className='text-[20px]'>{designation}</div>
+        <div className='sm:mt-[42px]'>
+            <div className='relative triangle bg-[#1D1C1C] text-center py-[10px] px-[40px]'>
+                {workDuration}
+            </div>
+            <div className={`${currentlyWorking ? 'bg-[#E73D3D]' : 'bg-[#1D1C1C]'} py-[15px] text-center mt-[8px]`}>
+                <div className='text-[25px] font-bold'>{companyName}</div>
+                <div className='text-[20px]'>{designation}</div>
+            </div>
         </div>
-    </div>
     </div>
 
 
 const TimelineComponent = ({experienceArr}:TimelineComponentType) => {
-    return <div className='mt-[30px]'>
+    return <div className='mt-[30px] flex gap-[45px] sm:block pl-[9px] sm:pl-[0px]'>
                 <Pillar />
-                <div className='flex gap-[45px]'>
-                    {experienceArr?.map((experience: ExperienceType)=>
+                <div className='flex flex-col my-[25px] sm:my-[0px] gap-[50px] sm:flex-row '>
+                    {experienceArr?.map((experience: ExperienceType, index: number)=>
                         <EventCard 
-                        companyName={experience?.companyName}
-                        designation={experience?.designation}
-                        workDuration={experience?.workDuration}
-                        currentlyWorking={experience?.currentlyWorking}
-                    />
+                            key={index}
+                            companyName={experience?.companyName}
+                            designation={experience?.designation}
+                            workDuration={experience?.workDuration}
+                            currentlyWorking={experience?.currentlyWorking}
+                        />
                     )}
                 </div>
                 

@@ -10,20 +10,24 @@ const Articles = () => {
     const tabs  = ['docker', 'kubernetes', 'all']
 
     // States:
-    const [currentTab, setCurrentTab] = useState<string>(tabs[tabs?.length-1 ?? 0])
+    const [currentTab, setCurrentTab] = useState<string>(tabs[tabs?.length-1])
     const [mediumFeed, setMediumFeed] = useState<any>()
 
     // Effects:
     useEffect(()=>{
         fetch(
-            `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@anantjakhmola9`
+            'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@anantjakhmola9'
           )
             .then(res => res.json())
             .then(response => {
               setMediumFeed(response.items)
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(`This is the error we are encountering: ${err}`))
     },[])
+
+    useEffect(()=>{
+        console.log(mediumFeed)
+    },[mediumFeed])
 
     return <>
         <div className='mt-[50px] mb-[100px] '>

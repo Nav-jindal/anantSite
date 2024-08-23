@@ -25,8 +25,8 @@ const Contact = () => {
         console.log('data: ',data)
     }
     return <div className='mt-[50px] mb-[100px] '>
-        <form className='w-[50%]' onSubmit={handleSubmit(contactSubmit)} noValidate>
-            <div className='flex items-center justify-between'>
+        <form className='md:w-[75%] lg:w-[50%]' onSubmit={handleSubmit(contactSubmit)} noValidate>
+            <div className='flex sm:items-center justify-between flex-col sm:flex-row'>
                 <h2 className='text-[39.063px] font-semibold mb-[15px]'>Contact</h2>
                 <div className='flex items-end gap-[20px] py-[24px]'>
                     <IconContext.Provider value={{ color: '#4D4D4D',className: 'footerIcons', size: '36px', style: {cursor: 'pointer', backgroundColor:'none'}}}> 
@@ -84,7 +84,7 @@ const Contact = () => {
                 </textarea>
                 <p className='mt-[10px] text-primary-red text-[14px] italic font-semibold tracking-[1px]'>{errors?.contactMessage?.message}</p>
             </div>
-            <button className='float-right mt-[30px] bg-primary-red px-[20px] py-[10px] rounded-[12px] cursor-pointer hover:bg-primary-darkRed focus-visible:bg-primary-darkRed' type='submit'>Send my message</button>
+            <button className='float-right mt-[30px] bg-primary-red px-[20px] py-[10px] rounded-[12px] cursor-pointer hover:bg-primary-darkRed focus-visible:bg-primary-darkRed' type='submit'>Send the message</button>
         </form>
     </div>
 }

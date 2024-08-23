@@ -4,7 +4,6 @@ import Home from './app/pages/home'
 import About from './app/pages/about'
 import Articles from './app/pages/articles'
 import Contact from './app/pages/contact'
-import Footer from './app/components/footer'
 
 // Routes:
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
@@ -21,11 +20,11 @@ function App() {
     {
       path: '/',
       element: <MainLayout />,
-      errorElement: 'Page Not Found',
+      errorElement: <h3 className='my-[35px]'>Error: Page Not Found</h3>,
       children: [
         {
           path: '/',
-          element: <Home />
+          element: <Home />,
         },
         {
           path: '/about',
@@ -42,8 +41,12 @@ function App() {
       ]
     }
   ])
+  
   return (
-      <div className='px-[50px] w-full text-white'> {/* min-h-[calc(100vh-109px)] */}
+      <div className='px-[20px] md:px-[50px] w-full text-white'>
+        <div className='opacity-[.50] absolute right-0 bottom-0 left-0 top-0 z-[-2]'>
+            <img className='object-cover h-full w-full' src='./images/backgroundPattern.png' alt='devops engineer'/>
+        </div>
         <RouterProvider router={router}/>
       </div>
   );

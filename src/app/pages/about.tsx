@@ -18,19 +18,31 @@ export interface ExperienceType {
 export interface ExtraInfoType {
     id?: number
     heading: string
+    //icon: JSX.Element
     name?: string
     info: string[]
 }
 
 // Functions:
-const AboutExtraInfoComponent = ({ heading, name, info }:ExtraInfoType) => 
-    <div className='flex gap-[45px] my-[50px]'>
-        <h3 className='text-[25px] font-medium min-w-[18%]'>{heading}</h3>
-        <div className='w-[45%]'>
+const AboutExtraInfoComponent = ({ 
+    //icon, 
+    heading, 
+    name, 
+    info 
+}:ExtraInfoType) => 
+    <div className='grid grid-cols-1 sm:grid-cols-[150px_400px] gap-[20px] md:gap-[45px] my-[40px]'>
+        {/* <div className='flex gap-[15px] items-'>
+            <div>{icon}</div>
+        </div> */}
+        <h3 className='text-[25px] font-medium h-max'>{heading}</h3>
+        <div className=''>
             <h4 className='text-[18px] font-medium text-[#ABABAB]'>{name}</h4>
             <div className='flex flex-wrap gap-[25px] mt-[10px]'>
                 {info?.map((item:string, index:number)=><div>
-                    <p className='text-[16px] text-[#ABABAB]'>
+                    <p  
+                        key={index}
+                        className='text-[16px] text-[#ABABAB] w-max'
+                    >
                         {item} 
                     </p>
                 </div>)}
@@ -48,35 +60,29 @@ const About = () => {
             designation: 'SDE II - Devops',
             currentlyWorking: true,
         },
-        {
-            id: 1,
-            workDuration: 'July 21 - Present',
-            companyName: 'GROWW',
-            designation: 'SDE II - Devops',
-            currentlyWorking: false,
-        },
     ]
 
     const extraInfoArr = [
         {
             id: 0,
-            icon: <RiGraduationCapFill size={48}/>,
+            icon: <RiGraduationCapFill size={30}/>,
             heading: 'Education',
             name: 'Graphic Era Deemed to be University',
             info: ['B.Tech (2017-21)'],
         },
         {
             id: 1,
-            icon: <RiSettings4Fill size={48} />,
+            icon: <RiSettings4Fill size={30} />,
             heading: 'Technical Skills',
             info: ['Docker', 'Kubernetes', 'MySql', 'Linux', 'Docker', 'Percona Monitoring', 'Terraform', 'GCP'],
         },
     ]
+
     return <>
     <div className='mt-[50px] mb-[100px]'>
         <h2 className='text-[39.063px] font-semibold mb-[15px]'>About</h2>
      
-        <p className='text-[16px] text-[#888888] w-[60%]'> Lorem ipsum dolor sit amet consectetur. Nulla viverra faucibus mauris sagittis. Laoreet dictum ipsum leo 
+        <p className='text-[16px] text-[#888888] md:w-[80%] lg:w-[60%]'> Lorem ipsum dolor sit amet consectetur. Nulla viverra faucibus mauris sagittis. Laoreet dictum ipsum leo 
             integer id nisi dignissim aliquam hac. Ante leo non scelerisque faucibus eros cursus sed ornare. Volutpat 
             amet nam scelerisque et nec donec. Amet sapien sed gravida arcu. Ut ac eget suspendisse cursus nec massa nec 
             non. Nulla non vitae et nisi pellentesque. Porttitor risus in sed habitasse. Nisl cursus in turpis gravida 
@@ -89,12 +95,13 @@ const About = () => {
                     key={extraInfo?.id}
                     heading={extraInfo?.heading}
                     name={extraInfo?.name}
+                    //icon={extraInfo?.icon}
                     info={extraInfo?.info}
                 />
             )}
             
         </div>
-        <div className='mt-[35px]'>
+        <div className='mt-[40px]'>
             <h3 className='text-[25px] font-bold '>Experience</h3>
                 <TimelineComponent
                     experienceArr={experienceArr}
