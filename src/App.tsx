@@ -44,7 +44,7 @@ function App() {
   
   return (
       <div className='px-[20px] md:px-[50px] w-full text-white'>
-        <div className='opacity-[.50] absolute right-0 bottom-0 left-0 top-0 z-[-2]'>
+        <div className='fixed opacity-[.55] right-0 bottom-0 left-0 top-0 z-[-2]'>
             <img className='object-cover h-full w-full' src='./images/backgroundPattern.png' alt='devops engineer'/>
         </div>
         <RouterProvider router={router}/>

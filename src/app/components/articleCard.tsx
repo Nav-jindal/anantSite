@@ -27,7 +27,7 @@ const ArticleComponent = ({ article, currentActiveTab }: ArticleComponentType) =
                 >
             <div>
                 <div className='text-[25px] mb-[12px] font-medium'>{article?.title}</div>
-                <p className='font-medium text-[#ABABAB] group-hover:text-white'>Published on: {article?.pubDate.split(' ')[0]}</p>
+                <p className='text-[#ABABAB] group-hover:text-white'>Published on: {article?.pubDate.split(' ')[0]}</p>
             </div>
             <div className='mt-[30px]'>
                 <div className='flex flex-wrap gap-[10px]'>

@@ -8,10 +8,7 @@ html, body {
 }
 
 body {
-  margin: 0;
-  padding: 0;
   background-color: #0d0d0d;
-  box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
