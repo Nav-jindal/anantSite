@@ -2,9 +2,6 @@
 import Footer from "../components/footer"
 import TimelineComponent from "../components/timeline"
 
-//Icons
-import { RiGraduationCapFill, RiSettings4Fill } from "react-icons/ri"
-
 // Typescript:
 export interface ExperienceType {
     id: number
@@ -60,19 +57,24 @@ const About = () => {
             designation: 'SDE II - Devops',
             currentlyWorking: true,
         },
+        {
+            id: 1,
+            workDuration: 'July 21 - Present',
+            companyName: 'GROWW',
+            designation: 'SDE II - Devops',
+            currentlyWorking: false,
+        },
     ]
 
     const extraInfoArr = [
         {
             id: 0,
-            icon: <RiGraduationCapFill size={30}/>,
             heading: 'Education',
             name: 'Graphic Era Deemed to be University',
             info: ['B.Tech (2017-21)'],
         },
         {
             id: 1,
-            icon: <RiSettings4Fill size={30} />,
             heading: 'Technical Skills',
             info: ['Docker', 'Kubernetes', 'MySql', 'Linux', 'Docker', 'Percona Monitoring', 'Terraform', 'GCP'],
         },
@@ -92,7 +94,7 @@ const About = () => {
         <div className='mt-[30px]'>
             {extraInfoArr?.map((extraInfo: ExtraInfoType)=>
                 <AboutExtraInfoComponent 
-                    key={extraInfo?.id}
+                    key={extraInfo.id}
                     heading={extraInfo?.heading}
                     name={extraInfo?.name}
                     //icon={extraInfo?.icon}
@@ -101,11 +103,22 @@ const About = () => {
             )}
             
         </div>
-        <div className='mt-[40px]'>
+        <div className='mt-[60px]'>
             <h3 className='text-[25px] font-bold '>Experience</h3>
                 <TimelineComponent
                     experienceArr={experienceArr}
                 />
+        </div>
+        <div className='mt-[60px] '>
+            <h3 className='text-[20px] flex items-center gap-[10px]'>Are you convinced to download my 
+                <a
+                    href = 'http://localhost:3000/images/resume.pdf' 
+                    className='text-primary-red text-[20px] cursor-pointer flex gap-[25px] items-center w-max decoration-0 hover: hover:shadow-[0_2px_0_0_#E73D3D]'
+                    download = {true}
+                >
+                    <span className='group-hover:font-medium'> Resume </span>
+                </a>?
+            </h3>
         </div>
     </div>
     <Footer/>

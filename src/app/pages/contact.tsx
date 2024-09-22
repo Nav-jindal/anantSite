@@ -24,10 +24,12 @@ const Contact = () => {
     const contactSubmit = (data: ContactForm) => {
         console.log('data: ',data)
     }
+
+    
     return <div className='mt-[50px] mb-[125px] '>
         <form className='md:w-[75%] lg:w-[50%]' onSubmit={handleSubmit(contactSubmit)} noValidate>
             <div className='flex sm:items-center justify-between flex-col sm:flex-row'>
-                <h2 className='text-[39.063px] font-semibold mb-[15px]'>Contact</h2>
+                <h2 className='text-[39.063px] font-semibold mb-[15px]'>Let's Connect</h2>
                 <div className='flex items-end gap-[20px] py-[24px]'>
                     <IconContext.Provider value={{ color: '#4D4D4D',className: 'footerIcons', size: '36px', style: {cursor: 'pointer', backgroundColor:'none'}}}> 
                     {/* hover color is in index.css */}
@@ -86,7 +88,7 @@ const Contact = () => {
             </div>
             <button 
                 type='submit'
-                className='text-primary-red text-[25px] mt-[25px] cursor-pointer group flex gap-[25px] items-center float-right'>
+                className='text-primary-red text-[20px] mt-[25px] cursor-pointer group flex gap-[25px] items-center float-right'>
                     <span className='group-hover:font-medium'> Send the message </span>
                     <svg width="44" height="17" viewBox="0 0 44 17" fill="none" xmlns="http://www.w3.org/2000/svg" className='group-hover:translate-x-8 transition-all'>
                         <path d="M1 8.5H42M42 8.5L35 1.5M42 8.5L35 15.5" stroke="#E73D3D" strokeWidth="2" strokeLinecap="round"/>

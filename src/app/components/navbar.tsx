@@ -1,5 +1,5 @@
 // Packages:
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 // Import:
 import { NavLink, useLocation } from "react-router-dom"
@@ -67,11 +67,6 @@ const Navbar = () => {
     // States:
     const [isCollapsibleMenuOpen, setIsCollapsibleMenuOpen] = useState<boolean>(false)
 
-    // Effects:
-    useEffect(()=>{
-        console.log('currentURL: ', currentURL.pathname === '/home')
-    },[currentURL])
-
     return <div className='flex justify-between items-center py-[24px]'>
         <div className='font-bold text-[18px]'>AJ</div>
         <div className='navLinkWrapper'> 
@@ -87,9 +82,9 @@ const Navbar = () => {
                         />
                     )}
                 </div>
-                <AnimatePresence>
                 <div className={`${isCollapsibleMenuOpen ? 'block' : 'hidden'} bg-[rgba(13,_13,_13,_0.55)] z-[50] absolute left-0 top-0 bottom-0 right-0`}>
                 </div>
+                <AnimatePresence>
                 <motion.div 
                     variants={collapseNavbarVar}
                     animate={`${isCollapsibleMenuOpen ? 'open' : 'close'}`}
@@ -103,7 +98,7 @@ const Navbar = () => {
                             <RiCloseFill size={30}/>
                         </div>
                         
-                        {navbarLinkArr?.map((navItem)=>
+                        {navbarLinkArr?.map((navItem, index)=>
                             <NavItem
                                 key={navItem.id}
                                 title={navItem?.title}

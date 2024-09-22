@@ -25,14 +25,10 @@ const Articles = () => {
             .catch(err => console.log(`This is the error we are encountering: ${err}`))
     },[])
 
-    useEffect(()=>{
-        console.log(mediumFeed)
-    },[mediumFeed])
-
     return <>
         <div className='mt-[50px] mb-[100px] '>
         <div className='flex flex-wrap gap-[15px] justify-between items-center mb-[15px]'>
-            <h2 className='text-[39.063px] font-semibold '>My Articles</h2>
+            <h2 className='text-[39.063px] font-semibold '>Articles & Insights</h2>
             {/* <div className='flex gap-[30px]'>
                 {tabs?.map((tab:string, index:number)=>
                 <div 

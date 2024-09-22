@@ -24,12 +24,24 @@ const Footer = ({
                 </a>
             </IconContext.Provider>
         </div>
-        <div className='text-[#4D4D4D] font-medium pb-[20px]'>
-            © copyright 2024
-        </div>
-        <div className={`${isFooterVisible ? 'block' : 'hidden'} h-[160px] relative bottom-[-10px] hidden md:block`}>
-            <img className='object-cover w-full h-full' src='./images/footerImage.png' alt='Engineer on table'/>
-        </div>
+        {isFooterVisible && <>
+            <div className='text-[#4D4D4D] font-medium pb-[20px]'>
+                © copyright 2024
+            </div>
+            <div className={`h-[160px] relative bottom-[-10px] hidden md:block`}>
+                <img className='object-cover w-full h-full' src='./images/footerImage.png' alt='Engineer on table'/>
+            </div>
+        
+        </>}
+        {/* <div className={`${isFooterVisible ? 'block' : 'hidden'} `}>
+            <div className='text-[#4D4D4D] font-medium pb-[20px]'>
+                © copyright 2024
+            </div>
+            <div className={`h-[160px] relative bottom-[-10px] hidden md:block`}>
+                <img className='object-cover w-full h-full' src='./images/footerImage.png' alt='Engineer on table'/>
+            </div>
+        </div> */}
+        
     </div>
 }
 
