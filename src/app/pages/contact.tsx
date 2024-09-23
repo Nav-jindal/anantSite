@@ -88,7 +88,7 @@ const Contact = () => {
             </div>
             <button 
                 type='submit'
-                className='text-primary-red text-[20px] mt-[25px] cursor-pointer group flex gap-[25px] items-center float-right'>
+                className='text-primary-red text-[20px] mt-[25px] cursor-pointer group flex gap-[25px] items-center sm:float-right'>
                     <span className='group-hover:font-medium'> Send the message </span>
                     <svg width="44" height="17" viewBox="0 0 44 17" fill="none" xmlns="http://www.w3.org/2000/svg" className='group-hover:translate-x-8 transition-all'>
                         <path d="M1 8.5H42M42 8.5L35 1.5M42 8.5L35 15.5" stroke="#E73D3D" strokeWidth="2" strokeLinecap="round"/>

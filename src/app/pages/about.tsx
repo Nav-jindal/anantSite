@@ -110,15 +110,16 @@ const About = () => {
                 />
         </div>
         <div className='mt-[60px] '>
-            <h3 className='text-[20px] flex items-center gap-[10px]'>Are you convinced to download my 
+            <div className='text-[20px] '>
+                <span className='mr-[8px]'>Are you convinced to download my</span>  
                 <a
                     href = 'http://localhost:3000/images/resume.pdf' 
-                    className='text-primary-red text-[20px] cursor-pointer flex gap-[25px] items-center w-max decoration-0 hover: hover:shadow-[0_2px_0_0_#E73D3D]'
+                    className='text-primary-red text-[20px] cursor-pointer contents w-max decoration-0 hover: hover:shadow-[0_2px_0_0_#E73D3D]'
                     download = {true}
                 >
-                    <span className='group-hover:font-medium'> Resume </span>
-                </a>?
-            </h3>
+                     Resume 
+                </a> ?
+            </div>
         </div>
     </div>
     <Footer/>

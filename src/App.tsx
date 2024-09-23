@@ -86,16 +86,17 @@ function App() {
   }, [mousePosition])
 
   return (
-      <div className='px-[20px] md:px-[50px] w-full text-white' 
-        style={{cursor: 'none' }}
+      <div className='px-[20px] md:px-[50px] w-full text-white sm:cursor-none' 
       >
-        <motion.div
-          className='h-[25px] w-[25px] rounded-[50%] fixed left-0 top-0 pointer-events-none z-[10000]'
-          variants={cursorVariant}
-          animate='default'
-        >
-          <sup className='relative left-[30px] top-[-16px] whitespace-nowrap'>{`[${mousePosition.coordX}, ${mousePosition.coordY}]`}</sup>
-        </motion.div>
+        {/* custom cursor */}
+          <motion.div
+            className='hidden sm:block h-[25px] w-[25px] rounded-[50%] fixed left-0 top-0 pointer-events-none z-[10000]'
+            variants={cursorVariant}
+            animate='default'
+          >
+            <sup className='relative left-[30px] top-[-16px] whitespace-nowrap'>{`[${mousePosition.coordX}, ${mousePosition.coordY}]`}</sup>
+          </motion.div>
+        {/* custom cursor */}
         <div className='fixed opacity-[.55] right-0 bottom-0 left-0 top-0 z-[-2] select-none'>
             <img className='object-cover h-full w-full' src='./images/backgroundPattern.png' alt='devops engineer' />
         </div>

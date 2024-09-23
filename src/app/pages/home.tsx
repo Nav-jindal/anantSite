@@ -27,7 +27,7 @@ const Home = () => {
                     </svg>
             </NavLink>
         </div>
-        <div className='opacity-[.35] z-[-20] h-[40%] sm:h-[45%] lg:h-[65%] absolute right-0 bottom-0 sm:z-[0] sm:opacity-100'>
+        <div className='hidden h-[40%] sm:h-[45%] lg:h-[65%] absolute right-0 bottom-0 sm:z-[0] min-[436px]:block'>
             <img className='object-cover h-full' src='./images/background.svg' alt='devops engineer'/>
         </div>
     </div>
