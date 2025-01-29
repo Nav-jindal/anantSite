@@ -28,7 +28,7 @@ const Articles = () => {
             } catch (error) {
                 toast.error(`${error}`, { 
                     position: 'top-right',
-                    autoClose: 3000,
+                    autoClose: 3500,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,

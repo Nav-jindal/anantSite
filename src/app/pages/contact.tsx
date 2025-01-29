@@ -53,7 +53,7 @@ const Contact = () => {
                 setIsLoading(false)
                 toast.success('Message sent successfully!', { 
                     position: 'top-right',
-                    autoClose: 3000,
+                    autoClose: 3500,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -65,7 +65,7 @@ const Contact = () => {
                 setIsLoading(false)
                 toast.warning('Something went wrong. Message not sent!', { 
                     position: 'top-right',
-                    autoClose: 3000,
+                    autoClose: 3500,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -77,7 +77,7 @@ const Contact = () => {
             setIsLoading(false)
             toast.error(`${error}`, { 
                 position: 'top-right',
-                autoClose: 3000,
+                autoClose: 3500,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
