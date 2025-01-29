@@ -6,6 +6,9 @@ import About from './app/pages/about'
 import Articles from './app/pages/articles'
 import Contact from './app/pages/contact'
 
+// React Toastify CSS:
+import 'react-toastify/dist/ReactToastify.css'
+
 // Routes:
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
 
@@ -90,7 +93,7 @@ function App() {
       >
         {/* custom cursor */}
           <motion.div
-            className='hidden sm:block h-[25px] w-[25px] rounded-[50%] fixed left-0 top-0 pointer-events-none z-[10000]'
+            className='hidden sm:block h-[25px] w-[25px] rounded-[50%] fixed left-0 top-0 pointer-events-none z-[1000]'
             variants={cursorVariant}
             animate='default'
           >

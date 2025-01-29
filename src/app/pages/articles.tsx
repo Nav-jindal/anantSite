@@ -1,7 +1,13 @@
-// Packages
+// Packages:
 import { useState, useEffect } from "react"
 
-// Components
+// Axios:
+import axios from 'axios'
+
+// React Toastify:
+import { ToastContainer, toast } from 'react-toastify'
+
+// Components:
 import ArticleComponent from "../components/articleCard"
 import Footer from "../components/footer"
 
@@ -11,21 +17,32 @@ const Articles = () => {
 
     // States:
     const [currentTab, setCurrentTab] = useState<string>(tabs[tabs?.length-1])
-    const [mediumFeed, setMediumFeed] = useState<any>()
+    const [articlesArray, setArticlesArray] = useState<any[]>()
 
     // Effects:
     useEffect(()=>{
-        fetch(
-            'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@anantjakhmola9'
-          )
-            .then(res => res.json())
-            .then(response => {
-              setMediumFeed(response.items)
-            })
-            .catch(err => console.log(`This is the error we are encountering: ${err}`))
-    },[])
+        const fetchArticles = async () => {
+            try {
+                const response = await axios.get('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@anantjakhmola9')
+                setArticlesArray(response?.data?.items)
+            } catch (error) {
+                toast.error(`${error}`, { 
+                    position: 'top-right',
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: false,
+                    theme: 'dark',
+                })
+            } 
+        }
+
+        fetchArticles()
+    }, [])
 
     return <>
+        <ToastContainer limit={3} />
         <div className='mt-[50px] mb-[100px] '>
         <div className='flex flex-wrap gap-[15px] justify-between items-center mb-[15px]'>
             <h2 className='text-[39.063px] font-semibold '>Articles & Insights</h2>
@@ -42,7 +59,7 @@ const Articles = () => {
         </div>
        
         <div className='mt-[20px] grid grid-cols-[repeat(4_,_1fr)] gap-[24px]'>
-            {mediumFeed?.map((article:any, index:number)=>
+            {articlesArray?.map?.((article:any, index:number)=>
             <ArticleComponent 
                 key={index}
                 article={article}

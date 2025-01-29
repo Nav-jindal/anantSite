@@ -52,20 +52,19 @@ const About = () => {
     const experienceArr = [
         {
             id: 0,
-            workDuration: 'July 21 - Present',
-            companyName: 'GROWW',
-            designation: 'SDE II - Devops',
-            currentlyWorking: true,
-        },
-        {
-            id: 1,
-            workDuration: 'July 21 - Present',
+            workDuration: 'July 22 - Aug 24',
             companyName: 'GROWW',
             designation: 'SDE II - Devops',
             currentlyWorking: false,
         },
+        {
+            id: 1,
+            workDuration: 'Aug 24 - Present',
+            companyName: 'Okta',
+            designation: 'SDE II - Devops',
+            currentlyWorking: true,
+        },
     ]
-
     const extraInfoArr = [
         {
             id: 0,
@@ -80,21 +79,25 @@ const About = () => {
         },
     ]
 
+    // Return:
     return <>
     <div className='mt-[50px] mb-[100px]'>
         <h2 className='text-[39.063px] font-semibold mb-[15px]'>About</h2>
      
-        <p className='text-[16px] text-[#888888] md:w-[80%] lg:w-[60%]'> Lorem ipsum dolor sit amet consectetur. Nulla viverra faucibus mauris sagittis. Laoreet dictum ipsum leo 
-            integer id nisi dignissim aliquam hac. Ante leo non scelerisque faucibus eros cursus sed ornare. Volutpat 
-            amet nam scelerisque et nec donec. Amet sapien sed gravida arcu. Ut ac eget suspendisse cursus nec massa nec 
-            non. Nulla non vitae et nisi pellentesque. Porttitor risus in sed habitasse. Nisl cursus in turpis gravida 
-            senectus lectus. Id orci bibendum sit malesuada pharetra a diam id. Vel nulla gravida et eget.
+        <p className='text-[16px] text-[#888888] md:w-[80%] lg:w-[60%] leading-[27px]'> I am a Devops and Cloud enthusiast who like to work on different 
+            technologies from containers to Prometheus and developing apps on Flutter.
+            It all started with setting up openstack when I took down the internet
+             for entire campus by mistake and from that day my technical journey entirely changed.
+            You will find me learning new technology most of the time and brainstorming ideas 
+            for new projects if not I will be helping someone by sharing my knowledge and helping my juniors.
+            Currently, I’m seeking opportunities that will allow me to develop and promote technologies
+             that help me to become a more reliable Devops engineer.
         </p>
  
         <div className='mt-[30px]'>
-            {extraInfoArr?.map((extraInfo: ExtraInfoType)=>
+            {extraInfoArr?.map((extraInfo: ExtraInfoType, index: number)=>
                 <AboutExtraInfoComponent 
-                    key={extraInfo.id}
+                    key={index}
                     heading={extraInfo?.heading}
                     name={extraInfo?.name}
                     //icon={extraInfo?.icon}
@@ -111,13 +114,13 @@ const About = () => {
         </div>
         <div className='mt-[60px] '>
             <div className='text-[20px] '>
-                <span className='mr-[8px]'>Are you convinced to download my</span>  
+                <span className='mr-[2.5px]'>Do you feel ready to review my </span>  
                 <a
                     href = 'http://localhost:3000/images/resume.pdf' 
                     className='text-primary-red text-[20px] cursor-pointer contents w-max decoration-0 hover: hover:shadow-[0_2px_0_0_#E73D3D]'
                     download = {true}
                 >
-                     Resume 
+                    Resume 
                 </a> ?
             </div>
         </div>

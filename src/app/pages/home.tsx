@@ -5,7 +5,7 @@ const Home = () => {
     return <>
         <div className='h-full mt-[50px] md:mt-[100px] lg:mt-[0px] lg:flex lg:items-center min-h-[calc(100vh-161px)]'>
         <div className='leading-[60px]'>
-            <h3 className='text-[#505050] text-[18px] sm:text-[20px] whitespace-nowrap uppercase tracking-wider font-bold'>Devops / SRE / Infra</h3>
+            <h3 className='text-[#505050] text-[18px] sm:text-[20px] whitespace-nowrap uppercase tracking-wider font-bold'>Devops / Database / Infra</h3>
             <h1 className='text-[39.063px] sm:text-[48.828px] font-semibold uppercase tracking-wider'>Anant Jakhmola</h1>
             <a
                 href = 'http://localhost:3000/images/resume.pdf' 
@@ -27,7 +27,7 @@ const Home = () => {
                     </svg>
             </NavLink>
         </div>
-        <div className='hidden h-[40%] sm:h-[45%] lg:h-[65%] absolute right-0 bottom-0 sm:z-[0] min-[436px]:block'>
+        <div className='hidden h-[40%] sm:h-[45%] lg:h-[65%] absolute right-0 bottom-0 sm:z-[0] min-[720px]:block'>
             <img className='object-cover h-full' src='./images/background.svg' alt='devops engineer'/>
         </div>
     </div>

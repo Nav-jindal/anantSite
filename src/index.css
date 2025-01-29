@@ -50,11 +50,11 @@ body {
 }
 
 .slideLeftAnimation {
-  animation: slideLeft .65s forwards;
+  animation: slideLeft .55s forwards;
 }
 
 .slideRightAnimation {
-  animation: slideRight .65s forwards;
+  animation: slideRight .55s forwards;
 }
 
 @keyframes slideLeft {
